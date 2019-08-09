@@ -35,6 +35,27 @@ class Solution {
     }
 }
 ```
+#### 解法二、用Java语言编写
+**本解法使用二分法进行查找**
+一个数的平方根一定不大于他自己的一半，所以可以直接吧范围缩小一半，然后在这一半的元素里面找到中间位置的一个，计算出他的平方，然后跟原数比较，太大说明中位数比原来的那个数的平方根大，所以接下来选择中位数左边的区间，反之选择右边的区间。重复上面的步骤直到剩下最后一个数为止
+```
+class Solution {
+    public int mySqrt(int x) {
+        long right = x/2+1;
+        long left = 0;
+        while(left < right){
+            long mid = (left+right)/2+1;
+            long squar = mid*mid;
+            if(squar > x){
+                right=mid-1;
+            }else{
+                left=mid;
+            }
+        }
+        return (int)left;
+    }
+}
+```
 
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/implement-strstr
