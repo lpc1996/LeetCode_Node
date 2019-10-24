@@ -31,26 +31,24 @@
 ```
 class Solution {
     public int maxProfit(int[] prices) {
-        int min=prices[index];
-        int index=0,result=0;
-        for(int i=1; i<price.length; i++){
-            if(prices[i]<min){
-                min=prices[i];
-                index = i;
+        int flag = 0;
+        int total = 0;
+        int temp = 0;
+        for(int i=1;i<prices.length;i++){
+            if(prices[i]>prices[i-1]){
+                flag=1;
+            }else{
+                flag=0;
+            }
+            if(flag==1){
+                temp = prices[i]-prices[i-1]+temp;
+            }
+            if(flag==0||i==prices.length-1){
+                total+=temp;
+                temp=0;
             }
         }
-        if(index == prices.length-1){
-            result=0;
-        }else{
-            int max =0;
-            for(int j=index+1; j<length; j++){
-                if( prices[j] >= min){
-                    max=prices[j];
-                }
-            }
-            result = max-min;
-        }
-        return result;
+        return total;
     }
 }
 ```
