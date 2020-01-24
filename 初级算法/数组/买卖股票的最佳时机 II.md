@@ -27,7 +27,7 @@
 ```
 
 ### 题解
-#### 题解一，用Java语言编写，未完成
+#### 题解一、用Java语言编写，未完成
 ```
 class Solution {
     public int maxProfit(int[] prices) {
